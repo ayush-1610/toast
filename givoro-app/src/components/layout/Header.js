@@ -118,7 +118,7 @@ export default function Header() {
           >
             Login / Sign Up
           </Link>
-        </nav>
+      </nav>
         {/* Mobile Hamburger */}
         <button
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 group"

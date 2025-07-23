@@ -67,3 +67,25 @@ body {
   color: #414141;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Custom Accessibility & Animation Styles */
+:focus-visible {
+  outline: 3px solid #111217;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
