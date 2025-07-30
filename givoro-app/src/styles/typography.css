@@ -1,0 +1,48 @@
+/* Typography Scale */
+.display-1 {
+  @apply font-sans text-6xl font-extrabold leading-tight;
+}
+
+.display-2 {
+  @apply font-sans text-5xl font-bold leading-tight;
+}
+
+.heading-1 {
+  @apply font-sans text-4xl font-bold leading-tight;
+}
+
+.heading-2 {
+  @apply font-sans text-3xl font-bold leading-snug;
+}
+
+.heading-3 {
+  @apply font-sans text-2xl font-semibold leading-snug;
+}
+
+.heading-4 {
+  @apply font-sans text-xl font-semibold leading-snug;
+}
+
+.body-large {
+  @apply font-sans text-lg font-normal leading-relaxed;
+}
+
+.body {
+  @apply font-sans text-base font-normal leading-relaxed;
+}
+
+.body-small {
+  @apply font-sans text-sm font-normal leading-relaxed;
+}
+
+.caption {
+  @apply font-sans text-xs font-medium leading-normal;
+}
+
+.button-text {
+  @apply font-sans text-base font-semibold leading-none;
+}
+
+.nav-text {
+  @apply font-sans text-base font-medium leading-none;
+}

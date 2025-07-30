@@ -8,9 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "motion": "^12.23.9",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",

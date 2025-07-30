@@ -7,7 +7,6 @@ import PlatformTeaser from '../components/home/PlatformTeaser';
 import InsightsTeaser from '../components/home/InsightsTeaser';
 import FooterCTA from '../components/home/FooterCTA';
 
-
 export default function Home() {
   return (
     <>
@@ -26,7 +25,6 @@ export default function Home() {
         {/* Footer CTA */}
         <FooterCTA />
       </main>
-      <Footer />
     </>
   );
 }

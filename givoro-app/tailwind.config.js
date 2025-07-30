@@ -5,7 +5,23 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Bw Gradual', 'system-ui', 'sans-serif'],
+    },
     extend: {
+      animation: {
+        aurora: "aurora 60s linear infinite",
+      },
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+      },
       colors: {
         primary: '#111217', // Space gray (main accent/background)
         secondary: '#23272F', // Darker gray (nav/footer)
@@ -16,11 +32,6 @@ module.exports = {
           50: '#F5F6FA',
           900: '#111217',
         },
-      },
-      fontFamily: {
-        heading: ['Montserrat', 'sans-serif'],
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Lora', 'serif'],
       },
       spacing: {
         '72': '18rem',

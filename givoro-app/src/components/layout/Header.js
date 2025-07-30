@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 // Custom hook to detect clicks outside a component
 function useOnClickOutside(ref, handler) {
@@ -38,6 +39,8 @@ export default function Header() {
 
   const dropdownRef = useRef(null);
   useOnClickOutside(dropdownRef, () => setDropdownOpen(false));
+  const router = useRouter();
+  const isHome = router.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => {
@@ -48,15 +51,22 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Determine header background
+  let headerClass = 'header-transition fixed w-full top-0 z-50 flex justify-center transition-all duration-300';
+  if (scrolled) {
+    headerClass += ' bg-white/80 shadow-lg border-b border-gray-200/80 backdrop-blur-lg';
+  }
+  // No background when not scrolled
+
   return (
     <header
-      className={`header-transition fixed w-full top-0 z-50 flex justify-center ${scrolled ? 'bg-white/80 shadow-lg border-b border-gray-200/80 backdrop-blur-lg' : 'bg-transparent'} transition-all duration-300`}
+      className={headerClass}
       style={{ minHeight: '80px' }}
     >
       <div className="w-full max-w-7xl flex items-center justify-between px-6">
         <Link
           href="/"
-          className={`font-heading text-3xl transition-colors duration-300 ${scrolled ? 'text-primary' : 'text-accent'}`}
+          className={`text-black font-heading text-3xl transition-colors duration-300 ${scrolled ? 'text-primary' : 'text-accent'}`}
           aria-label="GIVORO Home"
         >
           GIVORO
@@ -64,7 +74,7 @@ export default function Header() {
         <nav className={`hidden md:flex items-center space-x-10 font-sans text-base font-medium ${scrolled ? 'text-primary' : 'text-accent'}`} aria-label="Main navigation">
           {navLinks.map((link) => (
             link.dropdown ? (
-              <div key={link.label} className="relative" ref={dropdownRef}>
+              <div key={link.label} className="text-black relative" ref={dropdownRef}>
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className={`flex items-center gap-2 py-2 transition-colors duration-300`}
@@ -83,7 +93,7 @@ export default function Header() {
                   id="nav-dropdown-what-we-do"
                   className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${dropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}
                 >
-                  <div className="bg-white/80 backdrop-blur-lg text-primary rounded-2xl shadow-2xl p-4 w-[692px] flex border border-white/20">
+                  <div className="bg-white text-primary rounded-2xl shadow-2xl p-4 w-[692px] flex border border-gray-200">
                     {link.dropdown.map(item => (
                       <a key={item.title} href={item.href} className="flex-1 group">
                         <div className="flex p-4 rounded-lg hover:bg-white/50 transition-colors">
@@ -105,7 +115,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="py-2 transition-colors duration-300 hover:text-opacity-80"
+                className="text-black py-2 transition-colors duration-300 hover:text-opacity-80"
               >
                 {link.label}
               </Link>
@@ -133,10 +143,10 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-black/40 z-40" onClick={() => setMenuOpen(false)} />
+        <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
       )}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-neutral shadow-lg z-50 transform transition-transform duration-300 md:hidden ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-64 z-50 transform transition-transform duration-300 md:hidden ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex flex-col p-6 space-y-2 mt-16">
           <Link href="/about" className="text-lg font-sans py-2 text-primary" onClick={() => setMenuOpen(false)}>About Us</Link>
