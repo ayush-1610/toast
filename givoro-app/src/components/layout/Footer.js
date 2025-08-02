@@ -2,18 +2,18 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" className="footer bg-neutral text-primary pt-20 px-4 mt-12 relative overflow-x-clip">
-      <div className="footer-wrapper max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 pb-20 relative z-10">
+    <footer role="contentinfo" className="footer bg-neutral text-primary pt-10 px-4 mt-12 relative overflow-x-clip">
+      <div className="footer-wrapper max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 mb-[120px] relative z-10 ">
         {/* Left Section: Contact and Social */}
-        <div className="footer-left">
+        <div className="footer-left ml-9">
           <address className="not-italic text-sm">
-            <p className="title font-bold text-base mb-2">Contact Us</p>
             <p className="opacity-80">6 Brewhouse Yard</p>
             <p className="opacity-80">London EC1V 4DG</p>
             <p className="opacity-80">United Kingdom</p>
-            <p className="mt-2"><a href="/contact" className="hover:underline font-semibold">Email Us</a></p>
+            <p className="mt-2"><a href="/contact" className="hover:underline font-semibold">info@givoro.com</a></p>
+            <p className=""><a href="/contact" className="hover:underline font-semibold">+91 9373554381</a></p>
           </address>
-          <div className="social-links flex space-x-4 mt-4">
+          <div className="social-links flex justify-center space-x-4 mt-2">
             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/givoro" aria-label="LinkedIn">
               <img src="https://www.hogarth.com/sites/default/files/2024-11/hogarth_linkedin_social_icon.svg" alt="Linkedin" width="20" height="20" />
             </a>
@@ -24,9 +24,8 @@ export default function Footer() {
         </div>
 
         {/* Right Section: Navigation Links */}
-        <div className="footer-right">
+        <div className="footer-right mr-9">
           <nav role="navigation" aria-labelledby="footer-nav-menu">
-            <h2 className="visually-hidden" id="footer-nav-menu">Footer Navigation</h2>
             <ul className="menu footer-menu space-y-2 text-sm opacity-80">
               <li><a href="/" className="menu-link hover:underline">Home</a></li>
               <li><a href="/about" className="menu-link hover:underline">About</a></li>
@@ -40,7 +39,7 @@ export default function Footer() {
       </div>
 
       {/* Full-width SVG logo at the bottom */}
-      <div className="footer-logo absolute left-1/2 -translate-x-1/2 bottom-0 w-[1440px] h-[100px] pointer-events-none select-none overflow-hidden z-0">
+      <div className="footer-logo absolute left-1/2 -translate-x-1/2 bottom-0 w-[1440px] h-[115px] pointer-events-none select-none overflow-hidden z-0">
         <svg width="1440" height="143" viewBox="0 0 1440 143" fill="none">
           <text 
             x="50%" 

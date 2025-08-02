@@ -79,12 +79,12 @@ const expertiseItems = [
 export default function Expertise() {
   return (
     <>
-      <Head>
+      <div className='py-16'>
         <title>GIVORO Expertise – Our Capabilities</title>
         <meta name="description" content="Explore the core capabilities and expertise at GIVORO." />
         <meta property="og:title" content="GIVORO Expertise – Our Capabilities" />
         <meta property="og:description" content="Explore the core capabilities and expertise at GIVORO." />
-      </Head>
+      </div>
       <main className="font-serif">
         <header className="py-24 text-center" style={{ backgroundColor: '#F5F5F3' }}>
           <div className="max-w-4xl mx-auto px-4">

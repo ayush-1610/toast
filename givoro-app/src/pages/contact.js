@@ -9,7 +9,7 @@ export default function Contact() {
         <meta property="og:title" content="Contact GIVORO – Get in Touch" />
         <meta property="og:description" content="Contact GIVORO for partnership, support, or questions. Fill out the form or reach us via email, phone, or LinkedIn." />
       </Head>
-      <div className="relative min-h-screen flex flex-col items-center justify-center bg-neutral py-12 px-4">
+      <div className="relative min-h-screen flex flex-col items-center justify-center bg-neutral py-32 px-4">
         {/* Subtle background image */}
         <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
           <img

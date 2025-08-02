@@ -1,5 +1,7 @@
+'use client';
+
 const cards = [
-  {
+   {
     image: '/images/work1.jpg',
     title: 'Strategic Scale',
     subtitle: 'Mass Distribution, Done Right',
@@ -19,42 +21,42 @@ const cards = [
   },
 ];
 
-export default function MetricsGrid() {
+export default function HoverCards() {
   return (
-    <section className="py-24 bg-neutral">
+    <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-5xl font-extrabold text-gray-900 text-center mb-6 leading-tight">Our Scale & Capability</h2>
-        <p className="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">Lorem Ipsum, sometimes referred to as 'lipsum', is the placeholder text used in design when creating content</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-          {/* Left card: text then image */}
-          <div className="flex flex-col justify-between h-full items-center text-center">
-            <div className="flex flex-col items-center text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{cards[0].title}</h3>
-              {cards[0].subtitle && <div className="text-lg font-semibold text-primary mb-2">{cards[0].subtitle}</div>}
-              <p className="text-base text-gray-600">{cards[0].desc}</p>
+        <h2 className="text-4xl font-bold text-center mb-12">Our Work Highlights</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {cards.map((card, idx) => (
+            <div
+              key={idx}
+              className="relative group overflow-hidden rounded-xl shadow-lg cursor-pointer"
+            >
+              {/* Image */}
+              <img
+                src={card.image}
+                alt={card.title}
+                className="w-full h-80 object-cover transform duration-500 group-hover:blur-sm group-hover:scale-105"
+              />
+
+              {/* Dark overlay on hover */}
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-500"></div>
+
+              {/* Title (initial center, moves up on hover) */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3 className="text-white text-2xl font-semibold text-center transform transition-all duration-500 group-hover:-translate-y-16">
+                  {card.title}
+                </h3>
+              </div>
+
+              {/* Description (hidden initially, fade & slide in on hover) */}
+              <div className="absolute bottom-6 px-4 text-center opacity-0 transform translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 text-white">
+                <p className="text-sm">{card.desc}</p>
+              </div>
             </div>
-            <img src={cards[0].image} alt={cards[0].title} className="w-full h-48 object-cover" />
-          </div>
-          {/* Center card: image then text */}
-          <div className="flex flex-col justify-between h-full items-center text-center">
-            <img src={cards[1].image} alt={cards[1].title} className="w-full h-48 object-cover mb-6" />
-            <div className="flex flex-col items-center text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{cards[1].title}</h3>
-              {cards[1].subtitle && <div className="text-lg font-semibold text-primary mb-2">{cards[1].subtitle}</div>}
-              <p className="text-base text-gray-600">{cards[1].desc}</p>
-            </div>
-          </div>
-          {/* Right card: text then image */}
-          <div className="flex flex-col justify-between h-full items-center text-center">
-            <div className="flex flex-col items-center text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{cards[2].title}</h3>
-              {cards[2].subtitle && <div className="text-lg font-semibold text-primary mb-2">{cards[2].subtitle}</div>}
-              <p className="text-base text-gray-600">{cards[2].desc}</p>
-            </div>
-            <img src={cards[2].image} alt={cards[2].title} className="w-full h-48 object-cover" />
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
-} 
+}
